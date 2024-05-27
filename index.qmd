@@ -1,11 +1,18 @@
 ---
-title: "My Website"
+title: "Colin Hassett"
+image: C:\Users\kimh4\OneDrive\Desktop\Headshot2.JPG
+toc: false
+about: 
+  template: solana
+  image-shape: round
+  image-width: 20em
+  links:
+    - text: LinkedIn
+      href: https://linkedin.com/in/colin-hassett-a77762243
+    - text: GitHub
+      href: https://github.com/colinmhassett
+    - text: Email
+      href: mailto:cmhasset@calpoly.edu
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 2
-```
+Hi there! My name is Colin Hassett and I'm a statistics student at Cal Poly San Luis Obispo.
