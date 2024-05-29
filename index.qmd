@@ -1,6 +1,6 @@
 ---
 title: "Colin Hassett"
-image: C:\Users\kimh4\OneDrive\Desktop\Headshot2.JPG
+image: Headshot2.JPG
 toc: true
 about: 
   template: solana
