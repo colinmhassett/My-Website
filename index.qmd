@@ -1,6 +1,6 @@
 ---
 title: "Colin Hassett"
-image: Headshot2.JPG
+image: Headshot1.JPG
 toc: true
 about: 
   template: solana
