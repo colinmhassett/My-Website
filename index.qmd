@@ -15,4 +15,6 @@ about:
       href: mailto:cmhasset@calpoly.edu
 ---
 
-Hi there! My name is Colin Hassett and I'm a statistics student at Cal Poly San Luis Obispo.
+Hi there! My name is Colin Hassett and I'm a sophomore statistics student at Cal Poly San Luis Obispo.
+
+[Download my Resume](Colin Hassett Resume 5.31.24.pdf)

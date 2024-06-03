@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "posts/2024-06-02-Tidyquant-Lab/index.html",
+    "href": "posts/2024-06-02-Tidyquant-Lab/index.html",
+    "title": "Tidyquant Lab",
+    "section": "",
+    "text": "Intro to Tidyquant\nToday we will be using the Tidyquant package in R to collect financial data, create a portfolio, and visualize our portfolio. First, let’s install and load our libraries:\n1a) To get the index options, use “tq_index_options()”, and “tq_exchange_options()”, which will give you a list of options for each.\n\ntq_index_options()\n\n[1] \"DOW\"       \"DOWGLOBAL\" \"SP400\"     \"SP500\"     \"SP600\"    \n\ntq_exchange_options()\n\n[1] \"AMEX\"   \"NASDAQ\" \"NYSE\""
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Colin Hassett",
+    "section": "",
+    "text": "Hi there! My name is Colin Hassett and I’m a sophomore statistics student at Cal Poly San Luis Obispo.\nDownload my Resume"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -7,10 +21,17 @@
     "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Colin Hassett",
+    "objectID": "My Blog.html",
+    "href": "My Blog.html",
+    "title": "Projects",
     "section": "",
-    "text": "Hi there! My name is Colin Hassett and I’m a statistics student at Cal Poly San Luis Obispo."
+    "text": "Tidyquant Lab\n\n\n\nQuarto\n\n\nR\n\n\ntidyquant\n\n\n\nA Walkthrough of the tidyquant Package in R\n\n\n\nColin Hassett\n\n\nJun 2, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWine Project\n\n\n\nQuarto\n\n\nR\n\n\n\nAn analysis of Wine Data\n\n\n\nColin Hassett\n\n\nJun 2, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2024-06-02-Wine-Project/index.html",
+    "href": "posts/2024-06-02-Wine-Project/index.html",
+    "title": "Wine Project",
+    "section": "",
+    "text": "wine_ratings &lt;- readr::read_csv(\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-28/winemag-data-130k-v2.csv\")\n\nNew names:\nRows: 129971 Columns: 14\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(11): country, description, designation, province, region_1, region_2, t... dbl\n(3): ...1, points, price\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -&gt; `...1`\n\n\n\nwine_ratings_white &lt;- wine_ratings %&gt;%\n  select(country, points, price, variety, province) %&gt;%\n  filter(variety == \"Red Blend\") %&gt;%\n  group_by(country) %&gt;%\n  summarise(count = n()) %&gt;%\n  filter(count &gt; 10) %&gt;%\n  na.omit() %&gt;%\n  arrange(desc(count)) %&gt;%\n  pull(country)\n\nwine_ratings_df &lt;- wine_ratings %&gt;%\n  select(country, points, price, variety, province) %&gt;%\n  filter(variety == \"Red Blend\" & country %in% wine_ratings_white)\n\n# Reorder the levels of the country factor based on the median points\nwine_ratings_df$country &lt;- factor(wine_ratings_df$country, levels = wine_ratings_df %&gt;%\n                                     group_by(country) %&gt;%\n                                     summarise(median_points = median(points, na.rm = TRUE)) %&gt;%\n                                     arrange(desc(median_points)) %&gt;%\n                                     pull(country))\n\nggplot(data = wine_ratings_df, mapping = aes(x = points, y = country)) +\n  geom_boxplot(fill = \"red3\") +\n  labs(x = \"Points\", y = \"\", title = \"Red Wine Blend Ratings by Country\")\n\n\n\n  #theme(axis.text.x = element_text(angle = 45, hjust = 1))"
   }
 ]

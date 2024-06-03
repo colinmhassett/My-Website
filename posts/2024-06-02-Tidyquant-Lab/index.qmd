@@ -1,0 +1,30 @@
+---
+title: "Tidyquant Lab"
+description: "A Walkthrough of the tidyquant Package in R"
+author:
+  - name: Colin Hassett
+    url: https://colinmhassett.github.io/
+    affiliation: California Polytechnic State University, San Luis Obispo
+date: 06-2-2024
+categories: [Quarto, R, tidyquant] # self-defined categories
+image: Stocks Photo.webp
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+
+# Intro to Tidyquant
+
+Today we will be using the Tidyquant package in R to collect financial data, create a portfolio, and visualize our portfolio. First, let's install and load our libraries:
+
+```{r include = FALSE}
+library(tidyquant)
+library(tidyverse)
+library(lubridate)
+```
+
+1a) To get the index options, use "tq_index_options()", and "tq_exchange_options()", which will give you a list of options for each.
+
+```{r}
+tq_index_options()
+tq_exchange_options()
+
+```

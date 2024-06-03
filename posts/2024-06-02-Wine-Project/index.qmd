@@ -1,0 +1,51 @@
+---
+title: "Wine Project"
+description: "An analysis of Wine Data"
+author:
+  - name: Colin Hassett
+    url: https://colinmhassett.github.io/
+    affiliation: California Polytechnic State University, San Luis Obispo
+date: 06-2-2024
+categories: [Quarto, R] # self-defined categories
+image: Wine-Photo.JPG
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+
+```{r setup, include = FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+wine_ratings <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-28/winemag-data-130k-v2.csv")
+```
+
+
+```{r}
+wine_ratings_white <- wine_ratings %>%
+  select(country, points, price, variety, province) %>%
+  filter(variety == "Red Blend") %>%
+  group_by(country) %>%
+  summarise(count = n()) %>%
+  filter(count > 10) %>%
+  na.omit() %>%
+  arrange(desc(count)) %>%
+  pull(country)
+
+wine_ratings_df <- wine_ratings %>%
+  select(country, points, price, variety, province) %>%
+  filter(variety == "Red Blend" & country %in% wine_ratings_white)
+
+# Reorder the levels of the country factor based on the median points
+wine_ratings_df$country <- factor(wine_ratings_df$country, levels = wine_ratings_df %>%
+                                     group_by(country) %>%
+                                     summarise(median_points = median(points, na.rm = TRUE)) %>%
+                                     arrange(desc(median_points)) %>%
+                                     pull(country))
+
+ggplot(data = wine_ratings_df, mapping = aes(x = points, y = country)) +
+  geom_boxplot(fill = "red3") +
+  labs(x = "Points", y = "", title = "Red Wine Blend Ratings by Country")
+  #theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```

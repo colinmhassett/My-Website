@@ -1,0 +1,16 @@
+{
+  "hash": "0f4d511df83f1522fd2980e0682a8a4a",
+  "result": {
+    "markdown": "---\ntitle: \"Tidyquant Lab\"\ndescription: \"A Walkthrough of the tidyquant Package in R\"\nauthor:\n  - name: Colin Hassett\n    url: https://colinmhassett.github.io/\n    affiliation: California Polytechnic State University, San Luis Obispo\ndate: 06-2-2024\ncategories: [Quarto, R, tidyquant] # self-defined categories\nimage: Stocks Photo.webp\ndraft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!\n---\n\n\n# Intro to Tidyquant\n\nToday we will be using the Tidyquant package in R to collect financial data, create a portfolio, and visualize our portfolio. First, let's install and load our libraries:\n\n\n\n\n\n1a) To get the index options, use \"tq_index_options()\", and \"tq_exchange_options()\", which will give you a list of options for each.\n\n\n::: {.cell}\n\n```{.r .cell-code}\ntq_index_options()\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"DOW\"       \"DOWGLOBAL\" \"SP400\"     \"SP500\"     \"SP600\"    \n```\n:::\n\n```{.r .cell-code}\ntq_exchange_options()\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"AMEX\"   \"NASDAQ\" \"NYSE\"  \n```\n:::\n:::",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
